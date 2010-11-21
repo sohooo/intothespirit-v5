@@ -1,6 +1,46 @@
 
 require 'nanoc3/tasks'
 require 'fileutils'
+require 'pathname'
+
+desc "Creates a new page"
+task :new do
+  require 'active_support/core_ext'
+  require 'active_support/multibyte'
+  @ymd = Time.now.to_s(:db).split(' ')[0]
+
+  path  = Pathname.new ARGV[1]
+  title = path.basename.to_s.gsub(path.extname, "")
+
+  unless path.to_path =~ /^content/
+    $stderr.puts "\t[error] Wrong path argument.\n\tusage: rake new content/title.md"
+    exit 1
+  end
+
+  if File.exists?(path)
+    $stderr.puts "\t[error] Exists #{path}"
+    exit 1
+  end
+
+    template = <<TEMPLATE
+---
+created_at: #{@ymd}
+excerpt: 
+kind: article
+publish: true
+tags: [misc]
+title: "#{title.titleize}"
+---
+
+TODO: Add content to `#{path}.`
+TEMPLATE
+
+  page_dir = path.dirname
+  FileUtils.mkdir_p(page_dir) if !File.exists?(page_dir)
+  File.open(path, 'w') { |f| f.write(template) }
+  $stdout.puts "\t[ok] Edit #{path}"
+end
+
 
 namespace :create do
 
@@ -48,4 +88,5 @@ TEMPLATE
     [path, filename, path + filename]
   end
 end
+
 
