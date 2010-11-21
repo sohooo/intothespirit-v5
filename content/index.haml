@@ -1,26 +1,40 @@
 ---
-title: nanoc3 blog starter kit
+title: intothespirit
 ---
 
-#sticky
-  - item = item_by_identifier('/sticky/')
-  - if item[:title]
-    .title= item[:title]
+#definition
+  %h1 Definition
+  - definition = item_by_identifier('/definition/')
   .body
-    != partial(item)
+    != partial(definition)
+
+-#TODO: highlight outgoing link (airplane?)
+#places
+  %h1 Places
+  -#TODO: add icons/boxes for places listing
+  %ul
+    %li
+      %a(title="Photos" href="http://photos.intothespirit.com") photos
+    %li
+      %a(title="Blog" href="http://blog.intothespirit.com") Blog
+    %li
+      %a(title="Online vCard" href="http://svensporer.net") Profile Site
 
 - oldest_item = nil
 - current_index = 0
 
-- sorted_articles[current_index, featured_count].each do |item|
-  - oldest_item = item
-  - current_index += 1
-  .featured
-    = render('_article', :item => item, :is_embedded => true)
-
-- sorted_articles[current_index, excerpt_count].each do |item|
-  - oldest_item = item
-  = render('_excerpt', :item => item) 
+-# FIXME: other word of "articles"
+#articles
+  %h1 Articles
+  - sorted_articles[current_index, featured_count].each do |item|
+    - oldest_item = item
+    - current_index += 1
+    .featured
+      = render('_article', :item => item, :is_embedded => true)
+  
+  - sorted_articles[current_index, excerpt_count].each do |item|
+    - oldest_item = item
+    = render('_excerpt', :item => item) 
                 
 -#= render('_other_articles_nav', :reference_item => oldest_item, :older_only => true)
 
