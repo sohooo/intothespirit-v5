@@ -12,18 +12,18 @@ data_sources:
 #   % rake deploy:rsync
 deploy:
   default:
-    dst: "mgutz_com:www/nanoc3_blog"
-    options: ['-ave ssh', '--exclude=.DS_Store', '--exclude=*~']
+    dst: "intothes@intothespirit.com:/home6/intothes/www/itsv5"
+    options: ['-ave ssh', '--exclude=.DS_Store', '--exclude=.git', '--exclude=.rvmrc', '--exclude=*~']
 
 # domain to which this site is deployed
-base_url: http://nanoc-blog-kit.mgutz.com
+base_url: http://intothespirit.com
 
 google_analytics:
-  domain: mgutz.com
-  site_id: UA-9655468-1
+  domain: intothespirit.com
+  site_id: UA-7162223-2
 
 # currently used by logo
-site_name: nanoc3_blog
+site_name: intothespirit.com
 
 # number of full featured posts to display on front
 featured_count: 0
@@ -35,5 +35,5 @@ excerpt_count: 6
 other_articles_max: 3
 
 # DISQUS Site Shortname. Comment out to disable.
-disqus_shortname: nanoc3-blog
+#disqus_shortname: nanoc3-blog
 
