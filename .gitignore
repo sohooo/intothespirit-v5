@@ -2,6 +2,7 @@ output/*
 tmp/*
 *.swp
 *~
+.sass-cache
 .DS_Store
 .bundle
 output.diff
