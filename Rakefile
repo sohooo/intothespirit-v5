@@ -29,6 +29,7 @@ excerpt:
 kind: article
 publish: true
 tags: [misc]
+excerpt:
 title: "#{title.titleize}"
 ---
 

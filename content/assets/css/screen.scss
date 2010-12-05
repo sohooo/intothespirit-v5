@@ -35,6 +35,8 @@
   @include column(12);
 }
 .excerpt {
+  @include column(12);
+
   .teaser {
   @include column(7);
   @include append(1);
@@ -236,9 +238,12 @@ table.colophon {
   clear: both; }
 
 .excerpt {
+  border-bottom: 1px solid $border_color;
   margin-bottom: 1.5em;
   h2 {
-    margin-bottom: 0.5em; }
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+  }
   p {
     margin-bottom: 0.5em; }
 

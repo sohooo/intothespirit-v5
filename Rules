@@ -1,6 +1,8 @@
 #!/usr/bin/env ruby
 
 require 'compass'
+require 'active_support/core_ext'
+require 'active_support/multibyte'
 
 Compass.add_project_configuration 'compass/config.rb'
 

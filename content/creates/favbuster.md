@@ -1,9 +1,9 @@
 ---
 created_at: 2010-11-21
-excerpt: Favbuster is a Ruby script which purges all your Twitter Favorites.
 kind: article
 publish: true
 tags: [ruby, twitter, script]
+excerpt: Favbuster is a Ruby script which purges all your Twitter Favorites. The script is available on Github.
 title: "Favbuster"
 ---
 
