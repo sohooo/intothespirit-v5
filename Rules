@@ -1,5 +1,12 @@
 #!/usr/bin/env ruby
 
+require 'compass'
+
+Compass.add_project_configuration 'compass/config.rb'
+
+# ----------------------------------------------------------------------------
+# PREPROCESS
+# ----------------------------------------------------------------------------
 preprocess do
   # authors may unpublish items by setting meta attribute publish: false
   items.delete_if { |item| item[:publish] == false }
@@ -9,8 +16,19 @@ preprocess do
   add_update_item_attributes
 end
 
+# ----------------------------------------------------------------------------
+# COMPILE
+# ----------------------------------------------------------------------------
 compile '/assets/css/*/' do
-  filter :sass
+  filter :sass, Compass.sass_engine_options
+end
+
+compile '/assets/css/_*/' do 
+  nil
+end 
+
+compile '/assets/images/*/' do
+  nil
 end
 
 compile '*' do
@@ -34,12 +52,27 @@ compile '*' do
   layout 'default' unless item[:layout] == "none"
 end
 
+# ----------------------------------------------------------------------------
+# ROUTE
+# ----------------------------------------------------------------------------
+route '/assets/css/_*/' do 
+  # ignore SCSS partials
+  nil 
+end
+
 route '/assets/css/*/' do
   item.identifier.chop + '.css'
+end
+
+route '/assets/images/*/' do
+  # Make sure that /gallery/some_image/ is routed to
+  # /gallery/some_image.jpg or /gallery/some_image.png or so
+  item.identifier.chop + '.' + item[:extension]
 end
 
 route '*' do
   route_path(item)
 end
+
 
 layout '*', :haml

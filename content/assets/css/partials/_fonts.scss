@@ -1,0 +1,12 @@
+@mixin sans {
+  font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif; }
+
+@mixin serif {
+  //font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif
+  font-family: Georgia, Cambria, "Times New Roman", Times, serif; }
+
+@mixin logo-font {
+  font-family: baskerville, palatino, "palatino linotype", georgia, serif; }
+
+@mixin monospace {
+  font-family: Monaco, Consolas, "Lucida Console", "Courier New", Courier, monospace; }
