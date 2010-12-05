@@ -33,9 +33,10 @@ def route_path(item)
   end
   url.gsub!(extname, outext)
   
-  if url.include?('-')
-    url = url.split('-').join('/')  # /2010/01/01-some_title.html -> /2010/01/01/some_title.html
-  end
+  # dont split paths
+  # if url.include?('-')
+  #   url = url.split('-').join('/')  # /2010/01/01-some_title.html -> /2010/01/01/some_title.html
+  # end
 
   url
 end
