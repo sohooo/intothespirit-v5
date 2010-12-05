@@ -12,7 +12,7 @@ data_sources:
 #   % rake deploy:rsync
 deploy:
   default:
-    dst: "intothes@intothespirit.com:/home6/intothes/www/itsv5"
+    dst: "intothes@intothespirit.com:/home/intothes/www"
     options: ['-ave ssh', '--exclude=.DS_Store', '--exclude=.git', '--exclude=.rvmrc', '--exclude=*~']
 
 # domain to which this site is deployed
