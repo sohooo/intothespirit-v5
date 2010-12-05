@@ -2,10 +2,12 @@
 ---
 .excerpt
   - url = "#{route_path(item)}"
-  %h2 
-    %a(href="#{url}" title="Full article" class="permalink")= "&laquo; #{item[:title]}"
-  .body
+  .teaser
+    %img{:src => "/assets/images/teaser/#{item[:title]}.png", :alt => "#{item[:title]} project teaser"}
+  .meta
+    %h2 
+      %a(href="#{url}" title="Full article" class="permalink")= "&laquo; #{item[:title]}"
     %p
       = item[:excerpt] || "!!! Missing excerpt metadata for <code>#{item[:file].path}</code>"
-  -# = render('_meta', :item => item)
+      = render('_meta', :item => item)
     
