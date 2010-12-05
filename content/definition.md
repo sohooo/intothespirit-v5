@@ -1,4 +1,4 @@
 ---
 is_hidden: true
 ---
-projects of exceptional variety. utilities, conquering repetitiveness &amp; boredom. ladies and gentlemen, the playground of [Sven Sporer](http://svensporer.net).
+Projects of exceptional variety. utilities, conquering repetitiveness &amp; boredom. Ladies and gentlemen, the playground of Sven Sporer.

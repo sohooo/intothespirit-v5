@@ -3,6 +3,7 @@ $base_color: #202020;
 $heading_color: $base_color;
 $normal_color: #404040;
 $passive_color: #606060;
+$silent_color: #b0b0b0;
 
 // ruby per wikipedia
 $logo_color: white;
@@ -12,6 +13,7 @@ $link_color: $heading_color;
 $link_hover_color: #e0115f;
 $link_bg: white;
 
+$section_color: $link_hover_color;
 $tag_color: $link_color;
 
-$border_color: #bbbbbb;
+$border_color: #eeeeee;

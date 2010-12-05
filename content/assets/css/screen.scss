@@ -20,10 +20,18 @@
 #header {
   @include column(12);
 }
+#definition {
+  @include column(7);
+  @include append(1);
+}
+#places {
+  @include column(4);
+  @include last;
+}
 #articles {
   @include column(12);
 }
-#places {
+#taglist {
   @include column(12);
 }
 
@@ -43,6 +51,14 @@ body {
   margin: auto;
   // width: 720px;
   padding: 3em 0;
+
+  #definition h1, #places h1, #articles h1 {
+    border-bottom: 1px solid $border_color;
+    color: $section_color;
+    font-size: 0.8em;
+    text-transform: uppercase;
+    padding-bottom: 2px;
+    margin-bottom: 1em; }
 }
 
 a {
@@ -61,7 +77,9 @@ a {
 code, pre {
   @include monospace;
   color: $normal_color;
-  font-size: 13px; }
+  width: 100%;
+  overflow: auto;
+  font-size: 12px; }
 
 blockquote, div, ol, p, pre, ul {
   line-height: 1.5em;
@@ -80,7 +98,7 @@ h1, h2, h3, h4, h5 {
       color: $link_hover_color !important; } } }
 
 h1 {
-  border-bottom: 1px solid #eeeeee;
+  border-bottom: 1px solid $border_color;
   font-size: 1.8em;
   padding-bottom: 6px;
   margin-bottom: 1em; }
@@ -149,6 +167,13 @@ pre {
         display: inline; } } }
   .byline {
     color: $passive_color; } }
+
+#definition p {
+  @include serif;
+  font-size: 1.2em;
+  font-style: italic;
+  color: $silent_color;
+}
 
 #other-articles {
   margin-top: 4em;

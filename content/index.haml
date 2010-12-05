@@ -14,11 +14,11 @@ title: intothespirit
   -#TODO: add icons/boxes for places listing
   %ul
     %li
-      %a(title="Photos" href="http://photos.intothespirit.com") photos
-    %li
       %a(title="Blog" href="http://blog.intothespirit.com") Blog
     %li
       %a(title="Online vCard" href="http://svensporer.net") Profile Site
+    %li
+      %a(title="Photos" href="http://photos.intothespirit.com") Photos
 
 - oldest_item = nil
 - current_index = 0
@@ -37,8 +37,6 @@ title: intothespirit
     = render('_excerpt', :item => item) 
                 
 -#= render('_other_articles_nav', :reference_item => oldest_item, :older_only => true)
-
-.clear
 
 -# for SEO, but make it disappear
 #taglist
