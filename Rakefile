@@ -3,6 +3,26 @@ require 'nanoc3/tasks'
 require 'fileutils'
 require 'pathname'
 
+namespace :purge do
+
+  desc "delete teaser thumbnails (featured and thumbnail)"
+  task :thumbs do
+    teaser_root = Pathname.new "static/assets/images/teaser"
+
+    # original_path  = teaser_root + "original"
+    featured_path  = teaser_root + "featured"
+    thumbnail_path = teaser_root + "thumbnail"
+
+    [featured_path, thumbnail_path].each do |path|
+      path.children.each do |image|
+        image.delete
+        puts "[del] " + image.to_path
+      end
+    end
+  end
+
+end
+
 desc "Creates a new page"
 task :new do
   require 'active_support/core_ext'
