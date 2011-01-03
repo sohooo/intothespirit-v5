@@ -3,6 +3,8 @@ include Nanoc3::Helpers::Blogging
 include Nanoc3::Helpers::XMLSitemap
 require 'builder'
 require 'fileutils'
+require 'pathname'
+require 'mini_magick'
 require 'time'
 
 # Hyphens are converted to sub-directories in the output folder.
@@ -77,6 +79,35 @@ def add_update_item_attributes
   end
 end
 
+def create_teaser_images
+  teaser_root = Pathname.new "static/assets/images/teaser"
+
+  featured_path  = teaser_root + "featured"
+  original_path  = teaser_root + "original"
+  thumbnail_path = teaser_root + "thumbnail"
+
+  featured_width  = @config[:featured_width]  || 600
+  thumbnail_width = @config[:thumbnail_width] || 300
+
+  original_path.children.each do |ori|
+    featured_file  = featured_path  + "#{featured_width}-#{ori.basename}"
+    thumbnail_file = thumbnail_path + "#{thumbnail_width}-#{ori.basename}"
+
+    unless featured_file.file?
+      convert_teaser(ori, featured_width, featured_file)
+    end
+
+    unless thumbnail_file.file?
+      convert_teaser(ori, thumbnail_width, thumbnail_file)
+    end
+  end
+end
+
+def convert_teaser(input, width, output)
+  original = MiniMagick::Image.open(input.to_path)
+  original.resize "#{width}x#{width}"
+  original.write output.to_path
+end
 
 # Copy static assets outside of content instead of having nanoc3 process them.
 def copy_static
