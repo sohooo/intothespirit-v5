@@ -38,6 +38,6 @@ other_articles_max: 3
 #disqus_shortname: nanoc3-blog
 
 # teaser image sizes
-featured_width: 600
-thumbnail_width: 350
+featured_width: 960
+thumbnail_width: 555
 

@@ -1,0 +1,14 @@
+---
+---
+- url = "#{route_path(item)}"
+- title = item[:title].parameterize('_') 
+- width = @config[:featured_width]
+.teaser
+  %img{:src => "/assets/images/teaser/featured/#{width}-#{title}.png", :alt => "#{item[:title]} Project"}
+.meta
+  %h2 
+    %a(href="#{url}" title="Full article" class="permalink")= "&laquo; #{item[:title]}"
+  %p
+    = item[:excerpt] || "!!! Missing excerpt metadata for <code>#{item[:file].path}</code>"
+    = render('_meta', :item => item)
+    

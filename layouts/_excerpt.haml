@@ -3,8 +3,9 @@
 .excerpt
   - url = "#{route_path(item)}"
   - title = item[:title].parameterize('_') 
+  - width = @config[:thumbnail_width]
   .teaser
-    %img{:src => "/assets/images/teaser/#{title}.png", :alt => "#{item[:title]} project teaser"}
+    %img{:src => "/assets/images/teaser/thumbnail/#{width}-#{title}.png", :alt => "#{item[:title]} Project"}
   .meta
     %h2 
       %a(href="#{url}" title="Full article" class="permalink")= "&laquo; #{item[:title]}"
